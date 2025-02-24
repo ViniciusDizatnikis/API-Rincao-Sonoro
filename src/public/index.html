@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="/logo.png" type="image/svg+xml">
+  <title>Rincão Sonoro API</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+  
+  <style>
+    * { 
+      margin: 0; 
+      padding: 0; 
+      box-sizing: border-box; 
+      font-family: "Poppins", sans-serif;
+    }
+
+    body {   
+      background: linear-gradient(135deg, #1a1919, #2c3e50);
+      color: #fff; 
+      text-align: center;
+      min-height: 100vh;
+      overflow-x: hidden;
+    }
+
+    .header {
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    }
+
+    strong {
+      color: #ffffff;
+      text-wrap-mode: nowrap;
+    }
+
+    .header img {
+      height: 60px;
+      margin-right: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .header img:hover {
+      transform: scale(1.1);
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 50px auto;
+      padding: 30px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    h1 {
+      margin-top: 30px;
+      font-size: 32px;
+      font-weight: 600;
+      margin-bottom: 15px;
+      color: #fff;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      font-size: 16px;
+      font-weight: 300;
+      margin-bottom: 20px;
+      color: #ddd;
+    }
+
+    h2 {
+      font-size: 24px;
+      font-weight: 500;
+      margin-top: 30px;
+      text-transform: uppercase;
+      color: #fff;
+      text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    }
+
+    h3 {
+      font-size: 20px;
+      font-weight: 500;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    h4 {
+      font-size: 18px;
+      font-weight: 500;
+      margin-top: 20px;
+      color: #fff;
+    }
+
+    ul {
+      text-align: left;
+      list-style: none;
+      padding-left: 0;
+      margin-top: 20px;
+    }
+
+    ul li {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      margin: 10px 0;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s ease, background 0.3s ease;
+    }
+
+    ul li:hover {
+      transform: translateX(10px);
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    ul li::before {
+      content: "✔";
+      color: #0f0;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .alert {
+      background: linear-gradient(135deg, #8b0000, #ff0000);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      font-weight: bold;
+      color: #fff;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .info {
+      background: rgba(255, 255, 255, 0.1);
+      padding: 15px;
+      border-radius: 8px;
+      margin-top: 20px;
+      text-align: left;
+    }
+
+    .info p {
+      margin: 0;
+      color: #ddd;
+    }
+
+    .footer {
+      background: linear-gradient(135deg, #000000, #1a1a1a);
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+      color: #888;
+      margin-top: 50px;
+      box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .footer p {
+      margin: 5px 0;
+    }
+
+    .footer strong {
+      color: #fff;
+    }
+
+    .footer i {
+      color: #ffcc00;
+    }
+  </style>
+</head>
+<body>
+    <div class="header">
+        <img src="/logo.png" alt="Logo Rincão Sonoro">
+        <h1>Bem-vindo à API Rincão Sonoro!</h1>
+    </div>
+
+    <div class="container">
+        <h1>Sobre</h1>
+        <p>Esta API tem o propósito de gerenciar artistas e músicas, permitindo adicionar e obter informações detalhadas.</p>
+
+        <div class="info">
+          <h3>Projeto de Estudos</h3>
+          <p>
+            Esta API foi desenvolvida como parte de um projeto de estudos. Ela contém funcionalidades básicas para gerenciamento de artistas e músicas. 
+            Fique à vontade para utilizá-la em seus próprios projetos, mas lembre-se de manter os créditos ao criador. Isso ajuda a manter o projeto vivo e o criador contente! 🤓
+          </p>
+        </div>
+
+        <h1>Como Usar</h1>
+        <h2>Rotas Disponíveis</h2>
+
+        <h3>Artistas</h3>
+        <ul>
+          <li><strong>GET /artists:</strong> Retorna todos os artistas disponíveis.</li>
+          <li><strong>GET /artists/(id do Artista):</strong> Retorna informações específicas do artista com o ID fornecido.</li>
+          <li><strong>POST /artists/:</strong> Cria um novo artista. Envie os seguintes dados:
+            <ul>
+              <li><strong>image:</strong> URL da imagem do artista.</li>
+              <li><strong>name:</strong> Nome do artista.</li>
+              <li><strong>banner:</strong> URL do banner do artista.</li>
+              <li><strong>password:</strong> Senha para autorizar a criação.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <h3>Músicas</h3>
+        <ul>
+          <li><strong>GET /songs:</strong> Retorna todas as músicas disponíveis.</li>
+          <li><strong>GET /songs/(id da Música):</strong> Retorna informações específicas da música com o ID fornecido.</li>
+          <li><strong>GET /songs/artist/(id do Artista):</strong> Retorna todas as músicas do artista com o ID fornecido.</li>
+          <li><strong>POST /songs/:</strong> Cria uma nova música. Envie os seguintes dados:
+            <ul>
+              <li><strong>image:</strong> URL da imagem da música.</li>
+              <li><strong>name:</strong> Nome da música.</li>
+              <li><strong>duration:</strong> Duração da música.</li>
+              <li><strong>artist:</strong> ID do artista da música.</li>
+              <li><strong>audio:</strong> URL do áudio da música.</li>
+              <li><strong>password:</strong> Senha para autorizar a criação.</li>
+            </ul>
+          </li>
+        </ul>
+
+        <div class="alert">
+            <h2>Aviso Importante</h2>
+            <h4>O método POST só funciona com uma senha válida. Para poder criar deve ter a permissão do criador.</h4>
+        </div>
+    </div>
+
+    <div class="footer">
+        <p>2025 Rincão Sonoro.</p>
+        <p><strong>BY</strong> <i>Vinicius Dizatnikis</i> </p>
+    </div>
+</body>
+</html>
